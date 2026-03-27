@@ -18,3 +18,4 @@ app.use('/api/image',imageRouter)
 
 app.get('/', (req,res)=> res.send("API Working")) // when we hit this '/' api will send api is working
 app.listen(PORT ,()=>console.log('server running on the port'+PORT))
+export default app;
