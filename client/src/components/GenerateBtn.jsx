@@ -21,7 +21,7 @@ const GenerateBtn = () => {
     <div className='pb-16 text-center'>
         <h1 className='text-2xl md:text-3xl lg:text-4xl mt
         mt-4 font-semibold text-neutral-800 py-6 md:py-16'> See the magic. Try now</h1>
-        <button onClick = {onClickHandler}className='inline-flex item-center gap-2 bg-pink-600 px-4 text-white sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>Generates Images
+        <button onClick = {onClickHandler}className='inline-flex items-center gap-2 bg-pink-600 px-4 text-white sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>Generates Images
             <img src={assets.star_group} className='h-6'/>
         </button>
     </div>

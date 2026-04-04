@@ -11,7 +11,7 @@ const AppContextProvider = (props)=>{
     const [showLogin,setShowLogin] = useState(false);
     // enable login feature and registration to token getting 
     const [token,setToken] = useState(localStorage.getItem('token'))
-     const [credit,setCredit] =useState(false)
+     const [credit,setCredit] =useState(0)
 
 
 
@@ -27,6 +27,8 @@ const AppContextProvider = (props)=>{
                 if(data.success){
                     setCredit(data.credits)
                     setUser(data.user)
+                } else{
+                    toast.error(data.message)
                 }
 
                 
@@ -41,7 +43,12 @@ const AppContextProvider = (props)=>{
             try {
             const {data} =    await axios.post(backendUrl + '/api/image/generate-image',{prompt},{headers:{token}})
             if(data.success){
-                loadCreditsData()
+                // Update credits instantly from response
+                if (data.creditBalance !== undefined) {
+                    setCredit(data.creditBalance)
+                } else {
+                    loadCreditsData()
+                }
                 return data.resultImage
             }else{
                 toast.error(data.message)
