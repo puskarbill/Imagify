@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+dist/
+build/
+.DS_Store
+.vscode/
+# Test logs and files
+check_db*.js
+output.txt
+users.json

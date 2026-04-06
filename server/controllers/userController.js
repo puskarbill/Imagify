@@ -62,10 +62,15 @@ const loginUser = async (req,res)=>{
 
 const userCredits = async (req,res)=>{
     try {
-        const {userId} =req.body
+        const userId = req.userId || req.body.userId;
         // by chat gpt
         // const { userId } = req.user;
         const user = await userModel.findById(userId)
+
+        if(!user){
+             return res.json({success:false , message:'User does not exist'})
+        }
+
         res.json({success:true,credits: user.creditBalance,user:{name:user.name}})
         
     } catch (error) {
